@@ -1,3 +1,5 @@
+import java.sql.SQLException;
+
 public abstract class AbstractUserDAO {
     private static AbstractUserDAO instance;
     public static AbstractUserDAO getInstancePostGres() {
@@ -6,5 +8,5 @@ public abstract class AbstractUserDAO {
         }
         return instance;
     }
-    public abstract User getUserByCredentials(String mail, String password);
+    public abstract User getUserByCredentials(String mail, String password) throws SQLException;
 }

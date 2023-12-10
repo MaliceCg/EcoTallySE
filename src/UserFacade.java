@@ -1,3 +1,5 @@
+import java.sql.SQLException;
+
 public class UserFacade {
     private final AbstractDAOFactory daoFactory;
     private final AbstractUserDAO userDAO;
@@ -15,14 +17,14 @@ public class UserFacade {
         userDAO = daoFactory.getUserDAOPostGres();
     }
 
-    public User getCurrentUser(String mail, String password) {
+    public User getCurrentUser(String mail, String password) throws SQLException {
         return userDAO.getUserByCredentials(mail, password);
     }
-    public boolean login(String mail, String password) {
+    public boolean login(String mail, String password) throws SQLException {
         User user = getCurrentUser(mail, password);
         return user != null;
     }
     public String getName() {
-        return user.getName();
+        return user.getMail();
     }
 }
