@@ -7,6 +7,7 @@ public class Controller {
             return userFacade.login(mail, password);
         }
         public String getName() {
-            return userFacade.getName();
+
+            return userFacade.getCurrentUserName();
         }
 }

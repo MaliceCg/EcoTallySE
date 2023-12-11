@@ -3,11 +3,10 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class PostGreSQLDAOFactory extends AbstractDAOFactory{
-    private AbstractUserDAO userDAO;
 
     @Override
-    public AbstractUserDAO getUserDAOPostGres() {
-        return AbstractUserDAO.getInstancePostGres();
+    public AbstractUserDAO getUserDAO() {
+        return PostGreSQLUserDAO.getInstance();
     }
 
     public static Connection getConnection() throws SQLException {

@@ -1,8 +1,7 @@
 import java.sql.SQLException;
 
 public class UserFacade {
-    private final AbstractDAOFactory daoFactory;
-    private final AbstractUserDAO userDAO;
+
     private static UserFacade instance;
     private User user;
     public static UserFacade getInstance() {
@@ -12,19 +11,18 @@ public class UserFacade {
         return instance;
     }
 
-    public UserFacade() {
-        daoFactory = AbstractDAOFactory.getDAOFactoryPostgres();
-        userDAO = daoFactory.getUserDAOPostGres();
-    }
+    public UserFacade() {}
 
     public User getCurrentUser(String mail, String password) throws SQLException {
-        return userDAO.getUserByCredentials(mail, password);
+        return user;
     }
     public boolean login(String mail, String password) throws SQLException {
-        User user = getCurrentUser(mail, password);
+        AbstractDAOFactory daoFactory = AbstractDAOFactory.getInstance();
+        AbstractUserDAO userDAO = daoFactory.getUserDAO();
+        user = userDAO.getUserByCredentials(mail, password);
         return user != null;
     }
-    public String getName() {
-        return user.getMail();
+    public String getCurrentCompanyName() {
+        return user.getCompanyName();
     }
 }
