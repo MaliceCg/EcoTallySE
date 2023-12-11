@@ -1,7 +1,6 @@
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.SQLException;
 
 public class Login extends JFrame {
     private JTextField txtMail ;
@@ -31,12 +30,7 @@ public class Login extends JFrame {
                 }
 
                 // Utilisez la méthode loginUser du contrôleur pour gérer le processus de connexion
-                boolean loginSuccessful = false;
-                try {
-                    loginSuccessful = controller.login(mail, password);
-                } catch (SQLException ex) {
-                    throw new RuntimeException(ex);
-                }
+                boolean loginSuccessful = controller.login(mail, password);
 
                 if (loginSuccessful) {
                     // Utilisez la méthode getName du contrôleur pour obtenir le nom de l'utilisateur

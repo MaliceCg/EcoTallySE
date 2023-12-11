@@ -1,10 +1,10 @@
 public abstract class AbstractDAOFactory {
     private static AbstractDAOFactory instance;
-    public static AbstractDAOFactory getDAOFactoryPostgres() {
+    public static AbstractDAOFactory getInstance() {
         if (instance == null) {
             instance = new PostGreSQLDAOFactory();
         }
         return instance;
     }
-    public abstract AbstractUserDAO getUserDAOPostGres();
+    public abstract AbstractUserDAO getUserDAO();
 }
