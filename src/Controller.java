@@ -8,6 +8,6 @@ public class Controller {
         }
         public String getName() {
 
-            return userFacade.getCurrentUserName();
+            return userFacade.getCurrentCompanyName();
         }
 }
