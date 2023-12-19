@@ -5,6 +5,7 @@ public class Controller {
             return userFacade.login(mail, password);
         }
         public String getName() {
-            return userFacade.getCurrentUserName();
+
+            return userFacade.getCurrentCompanyName();
         }
 }

@@ -1,4 +1,6 @@
 public class User {
+
+    private String companyName;
     private String mail;
     private String password;
     private String name;
@@ -7,7 +9,8 @@ public class User {
     private String phone;
     private String role;
 
-    public User(String mail, String password, String name, String surname, String address, String phone, String role) {
+    public User(String companyName, String mail, String password, String role) {
+        this.companyName = companyName;
         this.mail = mail;
         this.password = password;
         this.name = name;
@@ -17,11 +20,17 @@ public class User {
         this.role = role;
     }
 
+    public String getCompanyName() {
+
+        return companyName;
+    }
     public String getMail() {
+
         return mail;
     }
 
     public String getPassword() {
+
         return password;
     }
 
@@ -42,6 +51,7 @@ public class User {
     }
 
     public String getRole() {
+
         return role;
     }
 }

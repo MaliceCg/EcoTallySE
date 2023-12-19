@@ -9,22 +9,18 @@ public class UserFacade {
         return instance;
     }
 
-    public UserFacade() {
+    public UserFacade() {}
 
-
-    }
-
-    public User getCurrentUser() {
+    public User getCurrentUser(String mail, String password) throws SQLException {
         return user;
     }
-    public boolean login(String mail, String password) {
+    public boolean login(String mail, String password) throws SQLException {
         AbstractDAOFactory daoFactory = AbstractDAOFactory.getInstance();
         AbstractUserDAO userDAO = daoFactory.getUserDAO();
         user = userDAO.getUserByCredentials(mail, password);
         return user != null;
     }
-    public String getCurrentUserName() {
-
-        return user.getName();
+    public String getCurrentCompanyName() {
+        return user.getCompanyName();
     }
 }
